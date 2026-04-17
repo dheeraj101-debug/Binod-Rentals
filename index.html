@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BINOD Rentals</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{font-family:Poppins,sans-serif;margin:0;background:#f5f7fa}
+
+/* HEADER */
+header{
+  background:#111;color:#fff;padding:15px 30px;
+  display:flex;justify-content:space-between;align-items:center
+}
+
+nav a{color:#fff;margin:0 10px;text-decoration:none}
+nav a:hover{color:#28a745}
+
+/* HERO SLIDER */
+.hero{position:relative}
+
+.slider{height:400px;overflow:hidden}
+.slide{
+  position:absolute;width:100%;height:400px;
+  object-fit:cover;opacity:0;transition:1s
+}
+.slide.active{opacity:1}
+
+.hero-text{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  color:#fff;text-align:center
+}
+
+/* SECTION */
+.section{padding:40px}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px
+}
+
+.card{
+  background:#fff;border-radius:10px;padding:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1)
+}
+
+.card img{width:100%;border-radius:10px}
+
+.status{
+  padding:5px 10px;border-radius:5px;color:#fff;
+  display:inline-block;margin-top:10px
+}
+.available{background:#28a745}
+.booked{background:#dc3545}
+
+button.book{
+  margin-top:10px;padding:8px 12px;border:none;
+  border-radius:5px;color:#fff;cursor:pointer
+}
+
+.book-now{background:#007bff}
+.call{background:#28a745}
+.whatsapp{background:#25D366}
+
+.map{margin-top:20px}
+
+/* FORM */
+#bookingForm{
+  display:none;position:fixed;top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.7)
+}
+
+.form-box{
+  background:#fff;padding:20px;width:300px;
+  margin:100px auto;border-radius:10px
+}
+
+footer{
+  background:#111;color:#fff;text-align:center;padding:20px
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>BINOD Rentals</h1>
+<nav>
+<a href="#">Home</a>
+<a href="#dhanbad">Dhanbad</a>
+<a href="#hazaribagh">Hazaribagh</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<!-- HERO SLIDER -->
+<section class="hero">
+<div class="slider">
+<img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2" class="slide active">
+<img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae" class="slide">
+<img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb" class="slide">
+</div>
+
+<div class="hero-text">
+<h2>Find Best Rooms & Shops</h2>
+<p>Dhanbad & Hazaribagh</p>
+</div>
+</section>
+
+<!-- DHANBAD -->
+<section class="section" id="dhanbad">
+<h2>Dhanbad - Manaitand</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae">
+<h3>Flat - Floor 1</h3>
+<span class="status available">Available</span><br>
+
+<button class="book book-now" onclick="openForm(this)">Book</button>
+<button class="book call" onclick="call()">Call</button>
+<button class="book whatsapp" onclick="whatsapp(this)">WhatsApp</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae">
+<h3>Flat - Floor 2</h3>
+<span class="status available">Available</span><br>
+
+<button class="book book-now" onclick="openForm(this)">Book</button>
+<button class="book call" onclick="call()">Call</button>
+<button class="book whatsapp" onclick="whatsapp(this)">WhatsApp</button>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae">
+<h3>Flat - Floor 3</h3>
+<span class="status available">Available</span><br>
+
+<button class="book book-now" onclick="openForm(this)">Book</button>
+<button class="book call" onclick="call()">Call</button>
+<button class="book whatsapp" onclick="whatsapp(this)">WhatsApp</button>
+</div>
+
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72">
+<h3>Shop 1-3</h3>
+<span class="status available">Available</span><br>
+
+<button class="book book-now" onclick="openForm(this)">Book</button>
+<button class="book call" onclick="call()">Call</button>
+<button class="book whatsapp" onclick="whatsapp(this)">WhatsApp</button>
+</div>
+
+</div>
+
+<div class="map">
+<iframe src="https://maps.google.com/maps?q=Manaitand%20Dhanbad&output=embed"
+width="100%" height="300"></iframe>
+</div>
+
+</section>
+
+<!-- HAZARIBAGH -->
+<section class="section" id="hazaribagh">
+<h2>Hazaribagh - Ichak</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4">
+<h3>Shop 1-7</h3>
+<span class="status available">Available</span><br>
+
+<button class="book book-now" onclick="openForm(this)">Book</button>
+<button class="book call" onclick="call()">Call</button>
+<button class="book whatsapp" onclick="whatsapp(this)">WhatsApp</button>
+</div>
+
+</div>
+
+<div class="map">
+<iframe src="https://maps.google.com/maps?q=Ichak%20Hazaribagh&output=embed"
+width="100%" height="300"></iframe>
+</div>
+
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+<h2>Contact</h2>
+<p>📞 9334597684 , 6299039510</p>
+<p>📧 Dheerajkr101@gmail.com</p>
+</section>
+
+<footer>
+<p>© 2026 BINOD Rentals</p>
+</footer>
+
+<!-- BOOKING FORM -->
+<div id="bookingForm">
+<div class="form-box">
+<h3>Book Property</h3>
+
+<input type="text" id="name" placeholder="Name" style="width:100%"><br><br>
+<input type="tel" id="phone" placeholder="Phone" style="width:100%"><br><br>
+
+<button onclick="submitBooking()">Submit</button>
+<button onclick="closeForm()">Cancel</button>
+</div>
+</div>
+
+<script>
+
+/* SLIDER */
+let slides=document.querySelectorAll('.slide');
+let i=0;
+setInterval(()=>{
+slides[i].classList.remove('active');
+i=(i+1)%slides.length;
+slides[i].classList.add('active');
+},3000);
+
+/* CALL */
+function call(){
+window.location.href="tel:6299039510";
+}
+
+/* WHATSAPP */
+function whatsapp(btn){
+let title=btn.parentElement.querySelector("h3").innerText;
+let msg=`Hello, I want to book ${title}`;
+window.open(`https://wa.me/919334597684?text=${encodeURIComponent(msg)}`);
+}
+
+/* BOOKING SYSTEM */
+let selected;
+
+function openForm(btn){
+selected=btn;
+document.getElementById("bookingForm").style.display="block";
+}
+
+function closeForm(){
+document.getElementById("bookingForm").style.display="none";
+}
+
+function submitBooking(){
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+
+if(name==""||phone==""){
+alert("Fill all details");
+return;
+}
+
+let card=selected.parentElement;
+let title=card.querySelector("h3").innerText;
+
+// Save data
+let data=JSON.parse(localStorage.getItem("bookings"))||[];
+data.push({name,phone,title});
+localStorage.setItem("bookings",JSON.stringify(data));
+
+// UI update
+let status=card.querySelector(".status");
+status.innerText="Booked";
+status.classList.remove("available");
+status.classList.add("booked");
+
+selected.innerText="Booked";
+selected.disabled=true;
+
+closeForm();
+alert("Booking Successful ✅");
+}
+
+</script>
+
+</body>
+</html>
